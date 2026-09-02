@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>두레반사람들 — 영천</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Dodum&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFE8D8;
+  --paper-deep:#E4DAC6;
+  --ink:#241F1A;
+  --blue:#1B3FA0;
+  --pink:#FF4B9B;
+  --measure:760px;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Gowun Dodum",system-ui,sans-serif;
+  font-size:17px;
+  line-height:1.85;
+  letter-spacing:-.01em;
+}
+body::after{
+  content:"";
+  position:fixed; inset:0; pointer-events:none; z-index:99; opacity:.45;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply;
+}
+.wrap{max-width:var(--measure); margin:0 auto; padding:0 24px;}
+h1,h2,h3{font-family:"Black Han Sans",sans-serif; font-weight:400; letter-spacing:0; line-height:1.15; margin:0;}
+.scribble{font-family:"Nanum Pen Script",cursive; font-size:24px; line-height:1.45; color:var(--pink);}
+
+/* ── 표지 ── */
+.cover{
+  position:relative;
+  height:min(90vh,780px);
+  min-height:440px;
+  background:#0d1330;
+  display:flex; align-items:flex-end;
+  overflow:hidden;
+}
+.cover img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+.cover .veil{
+  position:relative; width:100%;
+  padding:70px 24px 46px;
+  background:linear-gradient(to top,rgba(13,19,48,.88),rgba(13,19,48,.15) 60%,rgba(13,19,48,0));
+}
+.cover .inner{max-width:var(--measure); margin:0 auto;}
+.mark{
+  font-family:"Black Han Sans",sans-serif;
+  font-size:clamp(46px,11vw,88px);
+  line-height:1;
+  color:var(--paper);
+  position:relative; display:inline-block;
+}
+.mark::before{
+  content:"두레반사람들";
+  position:absolute; left:-5px; top:4px;
+  color:var(--pink); opacity:.75; z-index:-1;
+}
+.cover .place{color:var(--paper); font-size:16px; letter-spacing:.2em; margin-top:14px; opacity:.9;}
+
+.rule{
+  border:0; height:3px; margin:0; background:var(--ink); opacity:.85;
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='6' preserveAspectRatio='none'%3E%3Cpath d='M0 3.4 Q100 1.2 200 3.2 T400 2.6' stroke='%23000' stroke-width='2.4' fill='none'/%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='6' preserveAspectRatio='none'%3E%3Cpath d='M0 3.4 Q100 1.2 200 3.2 T400 2.6' stroke='%23000' stroke-width='2.4' fill='none'/%3E%3C/svg%3E");
+  -webkit-mask-size:100% 100%; mask-size:100% 100%;
+}
+
+section{padding:58px 0;}
+.head{margin-bottom:26px;}
+.head h2{font-size:31px;}
+.head .sub{font-size:16px; color:var(--blue); margin-top:6px;}
+.lede p{margin:0 0 12px; font-size:19px;}
+.since{font-size:15px; color:var(--blue); letter-spacing:.14em; margin-top:20px;}
+
+/* ── 사진 ── */
+.shot{
+  position:relative;
+  background:var(--paper-deep);
+  border:2.5px solid var(--blue);
+  aspect-ratio:4/3;
+  overflow:hidden;
+}
+.shot img{width:100%; height:100%; object-fit:cover; display:block;}
+/* 포스터·글자가 있는 사진은 잘리지 않게 전체를 보여준다 */
+.shot.fit{background:var(--paper-deep);}
+.shot.fit img{object-fit:contain;}
+
+.grid{display:grid; grid-template-columns:repeat(6,1fr); gap:30px 20px;}
+.cell{grid-column:span 3;}
+.cell.wide{grid-column:span 6;}
+.cell.wide .shot{aspect-ratio:16/9;}
+.cell.third{grid-column:span 2;}
+.cell.third .shot{aspect-ratio:1;}
+.cell:nth-child(3n+1) .shot{transform:rotate(-1.2deg);}
+.cell:nth-child(3n+2) .shot{transform:rotate(1.4deg);}
+.cell:nth-child(3n+3) .shot{transform:rotate(.8deg);}
+.cap{margin-top:16px; font-size:16px; line-height:1.6;}
+.cap b{font-family:"Black Han Sans",sans-serif; font-weight:400; font-size:18px; display:block;}
+
+/* ── 세 갈래 ── */
+.track{border-top:2.5px solid var(--blue); padding-top:22px; margin-top:52px;}
+.track:first-of-type{margin-top:10px;}
+.track h3{font-size:30px; color:var(--pink); display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;}
+.track h3 em{font-family:"Gowun Dodum",sans-serif; font-style:normal; font-size:15px; color:var(--blue); letter-spacing:.04em;}
+.track .what{margin:14px 0 0; padding:0; list-style:none;}
+.track .what li{position:relative; padding-left:22px; margin-bottom:4px;}
+.track .what li::before{content:""; position:absolute; left:0; top:.82em; width:11px; height:2.5px; background:var(--pink); transform:rotate(-3deg);}
+.track .grid{margin-top:26px;}
+
+/* ── 함께하기 ── */
+.join{text-align:center; padding-bottom:84px;}
+.join h2{font-size:34px; color:var(--pink);}
+.join p{margin:18px auto 0; max-width:27em; text-align:left;}
+.contacts{margin-top:30px; font-size:20px;}
+.contacts a{color:var(--blue); text-decoration:none; border-bottom:2px solid var(--pink);}
+.contacts a:hover{color:var(--pink);}
+a:focus-visible{outline:3px solid var(--pink); outline-offset:3px;}
+.stamp{
+  display:inline-block; margin-top:40px;
+  font-family:"Black Han Sans",sans-serif; font-size:15px; letter-spacing:.1em;
+  color:var(--blue); border:2.5px solid var(--blue); padding:9px 18px; transform:rotate(-3deg);
+}
+
+@media (max-width:560px){
+  body{font-size:16px;}
+  /* 표지: 사진을 자르지 않고 통째로, 제목은 사진 아래로 */
+  .cover{height:auto; min-height:0; display:block; background:none;}
+  .cover img{position:static; width:100%; height:auto; border-bottom:3px solid var(--blue);}
+  .cover .veil{position:static; background:none; padding:26px 24px 34px;}
+  .mark{color:var(--blue);}
+  .mark::before{color:var(--pink); opacity:.55;}
+  .cover .place{color:var(--ink); opacity:.7;}
+  section{padding:46px 0;}
+  .grid{grid-template-columns:repeat(2,1fr); gap:26px 16px;}
+  .cell,.cell.wide,.cell.third{grid-column:span 2;}
+  .cell.wide .shot,.cell.third .shot{aspect-ratio:4/3;}
+  .lede p{font-size:18px;}
+}
+
+@media print{
+  @page{margin:14mm;}
+  body{background:#fff; font-size:11pt;}
+  body::after{display:none;}
+  .wrap{max-width:100%; padding:0;}
+  .cover{height:auto; min-height:0; display:block;}
+  .cover img{position:static; height:auto; aspect-ratio:16/9;}
+  .cover .veil{background:none; padding:14px 0 0;}
+  .mark,.cover .place{color:var(--blue);}
+  .mark::before{display:none;}
+  section{padding:20px 0;}
+  .cell{break-inside:avoid;}
+  .track{break-inside:avoid;}
+  .join{padding-bottom:0;}
+}
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <img src="images/17-book.jpg" alt="밤하늘 아래 빛으로 글자를 그리는 두레반사람들">
+  <div class="veil">
+    <div class="inner">
+      <div class="mark">두레반사람들</div>
+      <div class="place">경북 영천</div>
+    </div>
+  </div>
+</header>
+
+<hr class="rule">
+
+<section class="wrap lede">
+  <div class="head"><h2>왜 모였나</h2></div>
+  <p>조금 더 다양한 방식으로 사람을 만나고<br>재미를 찾아가고 싶어서 모였습니다.</p>
+  <div class="since">SINCE 2021</div>
+</section>
+
+<hr class="rule">
+
+<section class="wrap">
+  <div class="head">
+    <h2>아지트</h2>
+    <div class="sub">여러 가지 실험과 사람들이 모이는 공간입니다</div>
+  </div>
+  <div class="grid">
+    <div class="cell">
+      <div class="shot"><img src="images/01-space.jpg" alt="방진복을 입고 공간을 손보는 두 사람"></div>
+      <div class="cap"><b>직접 공간 만들기</b></div>
+    </div>
+    <div class="cell">
+      <div class="shot fit"><img src="images/02-shop.jpg" alt="신비한 두레반 상점 포스터"></div>
+      <div class="cap"><b>두레반 상점</b></div>
+    </div>
+    <div class="cell">
+      <div class="shot"><img src="images/03-yearend.jpg" alt="촛불을 켠 케이크와 소원을 적은 쪽지들"></div>
+      <div class="cap"><b>연말 행사</b></div>
+    </div>
+    <div class="cell">
+      <div class="shot"><img src="images/04-beer.jpg" alt="둘러앉아 맥주를 맛보며 기록하는 사람들"></div>
+      <div class="cap"><b>맥주 음미회</b></div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="wrap">
+  <div class="head">
+    <h2>하는 일</h2>
+    <div class="sub">세 갈래로 굴러갑니다</div>
+  </div>
+
+  <div class="track">
+    <h3>모인다 <em>커뮤니티 · 여행</em></h3>
+    <ul class="what">
+      <li>커뮤니티 — 취향으로 모이기</li>
+      <li>여행 — 환대하고, 영천을 다양한 시야로 보여주기</li>
+    </ul>
+    <div class="grid">
+      <div class="cell wide">
+        <div class="shot"><img src="images/05-community.jpg" alt="분장을 하고 노래하는 모임 현장"></div>
+        <div class="cap"><b>자주하는 공동체</b></div>
+      </div>
+      <div class="cell">
+        <div class="shot"><img src="images/06-travel.jpg" alt="해먹에 누워 쉬는 사람"></div>
+        <div class="cap"><b>두레면 여행하리</b></div>
+      </div>
+      <div class="cell">
+        <div class="shot fit"><img src="images/07-noodle.jpg" alt="야외에 앉아 라면을 먹는 네 사람"></div>
+        <div class="cap"><b>우당탕탕 면치기</b></div>
+      </div>
+      <div class="cell">
+        <div class="shot"><img src="images/08-ppachung.jpg" alt="파란 단체복을 입고 게임하는 사람들"></div>
+        <div class="cap"><b>청년빠충</b></div>
+      </div>
+      <div class="cell">
+        <div class="shot"><img src="images/09-mom.jpg" alt="전시장에서 그림을 보는 사람"></div>
+        <div class="cap"><b>엄마는 휴식중</b></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="track">
+    <h3>연다 <em>포럼 · 페스티벌 · 행사</em></h3>
+    <ul class="what">
+      <li>포럼 — 청년 시민으로 지역 문제 찾고 이야기 나누기</li>
+      <li>페스티벌 — 우리가 해볼 수 있는 작은 축제</li>
+      <li>행사 — 우리에게 필요한 일이라면 뭐든 해보자</li>
+    </ul>
+    <div class="grid">
+      <div class="cell wide">
+        <div class="shot"><img src="images/14-weirdos.jpg" alt="다리 밑에 내걸린 그림 현수막들"></div>
+        <div class="cap"><b>weirdos 페스티벌</b></div>
+      </div>
+      <div class="cell">
+        <div class="shot fit"><img src="images/10-budget.jpg" alt="청년 정책 참여 대화모임 포스터"></div>
+        <div class="cap"><b>주민참여예산제도 참여</b></div>
+      </div>
+      <div class="cell">
+        <div class="shot"><img src="images/11-market-talk.jpg" alt="둘러앉아 회의하는 사람들"></div>
+        <div class="cap"><b>시장 간담회 준비</b></div>
+      </div>
+      <div class="cell">
+        <div class="shot fit"><img src="images/12-forum1.jpg" alt="손글씨로 적힌 이야기 나누기 질문지"></div>
+        <div class="cap"><b>여기도 청년있어요 포럼 1</b></div>
+      </div>
+      <div class="cell">
+        <div class="shot"><img src="images/13-forum2.jpg" alt="한옥 강의실에 모인 참가자들"></div>
+        <div class="cap"><b>여기도 청년있어요 포럼 2</b></div>
+      </div>
+      <div class="cell">
+        <div class="shot"><img src="images/15-youthday.jpg" alt="야외 무대에 선 진행 스태프들"></div>
+        <div class="cap"><b>청년의 날 행사</b></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="track">
+    <h3>남긴다 <em>아카이빙</em></h3>
+    <ul class="what">
+      <li>아카이빙 — 빠르게 사라지는 공간과 이야기를 담아두기</li>
+    </ul>
+    <div class="grid">
+      <div class="cell wide">
+        <div class="shot"><img src="images/16-market.jpg" alt="시장 신발가게에서 이야기를 듣는 모습"></div>
+        <div class="cap"><b>지역을 기록하는 방법 — 시장</b></div>
+      </div>
+      <div class="cell">
+        <div class="shot"><img src="images/17-book.jpg" alt="밤에 빛으로 글자를 그린 책 표지 사진"></div>
+        <div class="cap"><b>두레반 여행하리 표지</b></div>
+      </div>
+      <div class="cell">
+        <div class="shot"><img src="images/18-seomun.jpg" alt="경비실에서 이야기를 듣는 모습"></div>
+        <div class="cap"><b>서문육거리 이야기 듣기</b></div>
+      </div>
+      <div class="cell">
+        <div class="shot"><img src="images/19-yuseong.jpg" alt="경로당에서 어르신들과 둘러앉은 모습"></div>
+        <div class="cap"><b>화산면 유성2리 경로당</b></div>
+      </div>
+      <div class="cell">
+        <div class="shot"><img src="images/20-hyojeong.jpg" alt="한옥 마루에 앉아 이야기를 듣는 모습"></div>
+        <div class="cap"><b>화산면 효정리 이야기 듣기</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="wrap join">
+  <h2>같이 하실래요</h2>
+  <p>앞으로도 하고 싶은 것과 할 수 있는 활동들을 계속 이어 나가려고 합니다. 궁금하신 분들은 아래로 연락 주세요.</p>
+  <div class="contacts">
+    <a href="https://www.instagram.com/duraeban_people/">instagram @duraeban_people</a>
+  </div>
+  <div class="stamp">두레반사람들 · 영천</div>
+</section>
+
+</body>
+</html>
