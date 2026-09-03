@@ -121,8 +121,15 @@ section{padding:76px 0;}
 .join h2{font-size:34px; color:var(--pink);}
 .join p{margin:18px auto 0; max-width:27em; text-align:left;}
 .contacts{margin-top:30px; font-size:20px; display:flex; flex-direction:column; gap:12px; align-items:center;}
-.contacts a{color:var(--blue); text-decoration:none; border-bottom:2px solid var(--pink);}
+.contacts a{
+  color:var(--blue); text-decoration:none;
+  display:inline-flex; align-items:center; gap:10px;
+  border-bottom:2px solid var(--pink); padding-bottom:2px;
+}
 .contacts a:hover{color:var(--pink);}
+.contacts svg{width:26px; height:26px; flex:none;}
+.contacts .ig svg{color:#E1306C;}
+.contacts .yt svg{color:#FF0000;}
 a:focus-visible{outline:3px solid var(--pink); outline-offset:3px;}
 .stamp{
   display:inline-block; margin-top:40px;
@@ -303,7 +310,7 @@ a:focus-visible{outline:3px solid var(--pink); outline-offset:3px;}
       </div>
       <div class="cell">
         <div class="shot"><img src="images/19-yuseong.jpg" alt="경로당에서 어르신들과 둘러앉은 모습"></div>
-        <div class="cap"><b>스카이맨션 경로당</b></div>
+        <div class="cap"><b>화산면 유성2리 경로당</b></div>
       </div>
       <div class="cell">
         <div class="shot"><img src="images/20-hyojeong.jpg" alt="한옥 마루에 앉아 이야기를 듣는 모습"></div>
@@ -319,8 +326,17 @@ a:focus-visible{outline:3px solid var(--pink); outline-offset:3px;}
   <h2>같이 하실래요</h2>
   <p>앞으로도 하고 싶은 것과 할 수 있는 활동들을 계속 이어 나가려고 합니다. 궁금하신 분들은 아래로 연락 주세요.</p>
   <div class="contacts">
-    <a href="https://www.instagram.com/duraeban_people/">instagram @duraeban_people</a>
-    <a href="https://youtube.com/@duraeban_people">youtube @duraeban_people</a>
+    <a class="ig" href="https://www.instagram.com/duraeban_people/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/>
+        <circle cx="12" cy="12" r="4.6"/>
+        <circle cx="17.6" cy="6.4" r="1.15" fill="currentColor" stroke="none"/>
+      </svg>@duraeban_people</a>
+    <a class="yt" href="https://youtube.com/@duraeban_people">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <rect x="1.5" y="4.5" width="21" height="15" rx="4.5"/>
+        <path d="M10.2 8.9 L15.8 12 L10.2 15.1 Z" fill="currentColor" stroke="none"/>
+      </svg>@duraeban_people</a>
   </div>
   <div class="stamp">두레반사람들 · 영천</div>
 </section>
